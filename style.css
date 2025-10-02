@@ -1,0 +1,335 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.app-container {
+    max-width: 400px;
+    margin: auto;
+    background-image: linear-gradient(to bottom right, #f8c5d1, #ffdab9);
+    background-attachment: fixed;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: transparent;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+}
+
+.header .header-title {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: #e91e63;
+}
+
+.header .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: #e91e63;
+    margin: -5px 0 0;
+}
+
+.header-icons {
+    font-size: 24px;
+    cursor: pointer;
+    color: #555;
+    width: 30px;
+    text-align: center;
+}
+
+.add-button-bottom {
+    display: block;
+    width: 90%;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #e91e63;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+.add-button-bottom:hover {
+    background-color: #d81b60;
+    transform: translateY(-2px);
+}
+
+.main-content {
+    padding: 20px;
+    flex: 1;
+}
+
+/* Kalender */
+.calendar-container {
+    background-color: #fff3e6;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.month-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e65100;
+}
+.month-header span {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.calendar-grid .day-name {
+    font-weight: bold;
+    color: #888;
+    margin-top: 10px;
+}
+
+.calendar-grid .day {
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.calendar-grid .day:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.calendar-grid .day.current-month {
+    background-color: #fff;
+}
+
+.calendar-grid .day.selected-date {
+    background-color: #e91e63;
+    color: #fff;
+    font-weight: bold;
+}
+
+.calendar-grid .day.today {
+    border: 2px solid #e91e63;
+    color: #e91e63;
+    background-color: transparent;
+}
+
+/* Daftar Jadwal */
+.section-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 25px 0 15px;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.appointment-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeInItem 0.5s ease-in-out;
+}
+@keyframes fadeInItem {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.appointment-item.upcoming {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.appointment-item .details {
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-item h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #555;
+}
+
+.appointment-item .meta {
+    font-size: 14px;
+    color: #888;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+/* GARIS PEMISAH VERTICAL */
+.appointment-item .meta .time {
+    color: #e91e63;
+    font-weight: bold;
+}
+.appointment-item .meta .doctor {
+    border-left: 1px solid #ccc;
+    padding-left: 8px;
+    margin-left: 8px;
+}
+
+.appointment-item .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.appointment-item .actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+    transition: color 0.2s;
+}
+.appointment-item .actions button:hover {
+    color: #e91e63;
+}
+
+.no-appointments {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Formulir Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    animation: popUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #e91e63;
+    margin: 0 0 20px 0;
+}
+
+.modal-content input {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+.modal-content input:focus {
+    border-color: #e91e63;
+    outline: none;
+}
+.modal-content .input-group {
+    margin-bottom: 15px;
+}
+.modal-content .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #e91e63;
+    font-size: 14px;
+}
+
+.modal-content .button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modal-content button {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.modal-content button:active {
+    transform: scale(0.98);
+}
+
+.modal-content button#modal-save-btn {
+    background-color: #e91e63;
+    color: white;
+}
+.modal-content button#modal-save-btn:hover {
+    background-color: #d81b60;
+}
+
+.modal-content button.cancel {
+    background-color: #f4f4f4;
+    color: #888;
+}
+.modal-content button.cancel:hover {
+    background-color: #ddd;
+}
+
+/* Animasi untuk modal */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes popUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

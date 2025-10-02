@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Tanggal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <span class="header-icons">≡</span>
+        <div class="header-title">
+            <h1>Date Schedule</h1>
+            <h2 class="subtitle">Vian & Aura</h2>
+        </div>
+        <span class="header-icons"></span>
+    </div>
+
+    <div class="main-content">
+        <div class="calendar-container">
+            <div class="month-header">
+                <span onclick="changeMonth(-1)">&#x2039;</span>
+                <span id="month-year-label">September 2025</span>
+                <span onclick="changeMonth(1)">&#x203a;</span>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
+
+        <div id="today-section">
+            <h2 class="section-header">Jadwal Hari Ini</h2>
+            <div class="appointment-list" id="today-appointments"></div>
+        </div>
+        
+        <button class="add-button-bottom" onclick="openModal()">+ Tambah Jadwal</button>
+    </div>
+</div>
+
+<div id="appointment-modal" class="modal">
+    <div class="modal-content">
+        <h2 id="modal-title">Tambah Jadwal Baru</h2>
+        <input type="hidden" id="appointment-id">
+        <input type="text" id="appointment-name" placeholder="Nama Acara (contoh: Kencan makan malam)">
+        <input type="text" id="appointment-doctor" placeholder="Catatan (contoh: di restoran favorit)">
+        
+        <div class="input-group">
+            <label for="appointment-date">Tanggal</label>
+            <input type="date" id="appointment-date">
+        </div>
+        
+        <div class="input-group">
+            <label for="appointment-time">Waktu</label>
+            <input type="time" id="appointment-time">
+        </div>
+        
+        <div class="button-group">
+            <button id="modal-save-btn" onclick="saveAppointment()">Simpan</button>
+            <button class="cancel" onclick="closeModal()">Batal</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
